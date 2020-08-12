@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">All Business Development Officer</h4></div>
+                        <h4 class="page-title">All Users</h4></div>
                 </div>
             </div>
             <div class="row">
@@ -22,7 +22,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Branch</th>
-                                        <th>SuperVisor</th>
+                                        <th>Role</th>
                                         <th>Date Started</th>
                                         <th>Total Active Members</th>
                                         <th>Action</th>
@@ -32,9 +32,9 @@
                                     <tr>
                                         <td>Tiger Nixon</td>
                                         <td>Ngong</td>
-                                        <td>Beth Warimu</td>
+                                        <td>Admin</td>
                                         <td>01/07/2020</td>
-                                        <td>10</td>
+                                        <td>0</td>
                                         <td>
                                             <button type="button" class="btn btn-warning waves-effect waves-light">View
                                                 Profile
@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>Grace Joyce</td>
                                         <td>Rongai</td>
-                                        <td>Beth Warimu</td>
+                                        <td>BDO</td>
                                         <td>01/07/2020</td>
                                         <td>20</td>
                                         <td>
@@ -54,20 +54,6 @@
                                             </button>
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <td>Ruth Patric</td>
-                                        <td>Thika</td>
-                                        <td>Beth Warimu</td>
-                                        <td>09/07/2020</td>
-                                        <td>59</td>
-                                        <td>
-                                            <button type="button" class="btn btn-warning waves-effect waves-light">View
-                                                Profile
-                                            </button>
-                                        </td>
-                                    </tr>
-
                                     </tbody>
                                 </table>
                             </div>

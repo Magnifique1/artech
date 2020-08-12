@@ -6,12 +6,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/newbdo', function () {
-    return view('newbdo');
+Route::get('/newuser', function () {
+    return view('newuser');
 });
 
-Route::get('/allbdo', function () {
-    return view('allbdo');
+Route::get('/allusers', function () {
+    return view('allusers');
 });
 
 Route::get('/newmember', function () {
@@ -28,4 +28,8 @@ Route::get('/bdoprofile', function () {
 
 Route::get('/memberprofile', function () {
     return view('memberprofile');
+});
+
+Route::get('/newgroup', function () {
+    return view('newgroup');
 });

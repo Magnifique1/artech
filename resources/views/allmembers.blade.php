@@ -6,9 +6,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">All Members</h4></div>
+                        <h4 class="page-title">All Group Members</h4></div>
+                    <a href="/newmember" class="btn btn-success waves-effect waves-light">Add New Member To This Group</a>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
                     <div class="card m-b-30">
@@ -19,8 +21,8 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Branch</th>
-                                        <th>BRO</th>
+                                        <th>Group</th>
+                                        <th>BDO</th>
                                         <th>Member Since</th>
                                         <th>Total Current Savings</th>
                                         <th>Action</th>
@@ -37,29 +39,6 @@
                                             <a href="/memberprofile" class="btn btn-primary waves-effect waves-light">View Profile</a>
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <td>Grace Joyce</td>
-                                        <td>Rongai</td>
-                                        <td>Beth Warimu</td>
-                                        <td>01/07/2020</td>
-                                        <td>KES 100,000</td>
-                                        <td>
-                                            <a href="/memberprofile" class="btn btn-primary waves-effect waves-light">View Profile</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Ruth Patric</td>
-                                        <td>Thika</td>
-                                        <td>Beth Warimu</td>
-                                        <td>09/07/2020</td>
-                                        <td>KES 100,000</td>
-                                        <td>
-                                            <a href="/memberprofile" class="btn btn-primary waves-effect waves-light">View Profile</a>
-                                        </td>
-                                    </tr>
-
                                     </tbody>
                                 </table>
                             </div>

@@ -52,20 +52,19 @@
                     </li>
 
                     <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
-                                class="mdi mdi-layers"></i> <span>BDO's </span><span class="float-right"><i
+                                class="mdi mdi-layers"></i> <span>Users </span><span class="float-right"><i
                                     class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="/newbdo">New BDO</a></li>
-                            <li><a href="/allbdo">View All BDO's</a></li>
+                            <li><a href="/newuser">New User</a></li>
+                            <li><a href="/allusers">View All Users</a></li>
                         </ul>
                     </li>
 
                     <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
-                                class="mdi mdi-layers"></i> <span>Members </span><span class="float-right"><i
+                                class="mdi mdi-layers"></i> <span>Groups& Members</span><span class="float-right"><i
                                     class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="/newmember">New Member</a></li>
-                            <li><a href="/allmembers">View All Members</a></li>
+                            <li><a href="/newgroup">Create/View Groups</a></li>
                         </ul>
                     </li>
 

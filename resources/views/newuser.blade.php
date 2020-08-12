@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">Create New Business Development Officer</h4></div>
+                        <h4 class="page-title">Create New user</h4></div>
                 </div>
             </div><!-- end page title end breadcrumb -->
             <div class="row">
@@ -58,6 +58,31 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="example-email-input" class="col-sm-2 col-form-label">Login Password</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="email" value="" id="example-email-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-email-input" class="col-sm-2 col-form-label">Confirm Password</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="email" value="" id="example-email-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-email-input" class="col-sm-2 col-form-label">User Role</label>
+                                <div class="col-sm-10">
+                                    <select class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;">
+                                        <option>Select</option>
+                                        <option value="bdo">Business Development Officer</option>
+                                        <option value="admin">Administrator</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="example-email-input" class="col-sm-2 col-form-label">Default Branch</label>
                                 <div class="col-sm-10">
                                     <select class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;">
@@ -73,28 +98,7 @@
 
                             <br>
                             <br>
-                            <h4 class="mt-0 header-title">Banking Information</h4>
-
-                            <div class="form-group row">
-                                <label for="example-search-input" class="col-sm-2 col-form-label">Bank Name</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="search" value="" id="example-search-input">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="example-search-input" class="col-sm-2 col-form-label">Branch Name</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="search" value="" id="example-search-input">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="example-search-input" class="col-sm-2 col-form-label">Account Number</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="search" value="" id="example-search-input">
-                                </div>
-                            </div>
+                            <h4 class="mt-0 header-title">Attachments</h4>
 
                             <div class="row">
                                 <div class="col-xl-6">

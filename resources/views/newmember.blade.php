@@ -59,34 +59,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="example-email-input" class="col-sm-2 col-form-label">Assigned Branch</label>
-                                <div class="col-sm-10">
-                                    <select class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;">
-                                        <option>Select</option>
-                                        <option value="NRB">Nairobi CBD</option>
-                                        <option value="NG">Ngong</option>
-                                        <option value="RN">Rongai</option>
-                                        <option value="TH">Thika</option>
-
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="example-email-input" class="col-sm-2 col-form-label">Assigned BDO</label>
-                                <div class="col-sm-10">
-                                    <select class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;">
-                                        <option>Select</option>
-                                        <option value="NRB">James Waruri</option>
-                                        <option value="NG">Steve Harvey</option>
-                                        <option value="RN">Stacy Grace</option>
-                                        <option value="TH">Ruth Patric</option>
-
-                                    </select>
-                                </div>
-                            </div>
-
                             <br>
                             <br>
                             <h4 class="mt-0 header-title">Identity Attachments</h4>

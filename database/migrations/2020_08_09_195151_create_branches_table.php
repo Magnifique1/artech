@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 class CreateBranchesTable extends Migration
@@ -18,6 +20,12 @@ class CreateBranchesTable extends Migration
             $table->string('branch_name');
             $table->timestamps();
         });
+
+        DB::table('branches')->insert(
+            array(
+                'branch_name'=>'Head Office',
+            )
+        );
     }
 
     /**

@@ -10,6 +10,14 @@
                     <div class="page-title-box">
                         <h4 class="page-title">All Users</h4></div>
                 </div>
+
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ session('success') }}
+                    </div>
+                @endif
+
             </div>
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
@@ -29,11 +37,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                    @foreach($allusers as $AU)
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>Ngong</td>
-                                        <td>Admin</td>
-                                        <td>01/07/2020</td>
+                                        <td>{{$AU->fname}} {{$AU->lname}}</td>
+                                        <td>{{$AU->branch_name}}</td>
+                                        <td>{{$AU->role}}</td>
+                                        <td>{{$AU->created}}</td>
                                         <td>0</td>
                                         <td>
                                             <button type="button" class="btn btn-warning waves-effect waves-light">View
@@ -41,19 +51,8 @@
                                             </button>
                                         </td>
                                     </tr>
+                                    @endforeach
 
-                                    <tr>
-                                        <td>Grace Joyce</td>
-                                        <td>Rongai</td>
-                                        <td>BDO</td>
-                                        <td>01/07/2020</td>
-                                        <td>20</td>
-                                        <td>
-                                            <button type="button" class="btn btn-warning waves-effect waves-light">View
-                                                Profile
-                                            </button>
-                                        </td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

@@ -17,9 +17,9 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->string('group_name');
             $table->string('group_location');
-            $table->unsignedBigInteger('branch_id')->nullable();
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->timestamps();
+            $table->unsignedBigInteger('default_branch_id');
+            $table->unsignedBigInteger('default_user_id');
         });
     }
 

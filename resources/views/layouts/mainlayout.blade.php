@@ -64,7 +64,15 @@
                                 class="mdi mdi-layers"></i> <span>Groups& Members</span><span class="float-right"><i
                                     class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="/newgroup">Create/View Groups</a></li>
+                            <li><a href="/groups">Create/View Groups</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
+                                class="mdi mdi-layers"></i> <span>Branches</span><span class="float-right"><i
+                                    class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/branches">Create/View Branches</a></li>
                         </ul>
                     </li>
 

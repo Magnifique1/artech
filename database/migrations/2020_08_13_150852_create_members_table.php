@@ -24,7 +24,11 @@ class CreateMembersTable extends Migration
             $table->string('docIDPath')->nullable();
             $table->string('docKRAPath')->nullable();
             $table->unsignedBigInteger('default_user_id');
+            $table->unsignedBigInteger('default_group_id');
             $table->timestamps();
+
+            $table->foreign('default_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('default_group_id')->references('id')->on('mgroups')->onDelete('cascade');
         });
     }
 

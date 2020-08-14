@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('docKRAPath')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('default_branch_id');
+            $table->foreign('default_branch_id')->references('id')->on('branches')->onDelete('cascade');
         });
 
         DB::table('users')->insert(
@@ -38,9 +39,11 @@ class CreateUsersTable extends Migration
                 'phone2'=>'0797301935',
                 'id_number'=>'123456',
                 'email'=>'test@test.com',
-                'password'=>Hash::make('123'),
+                'password'=>Hash::make('123456'),
                 'role'=>'ADMIN',
                 'default_branch_id'=>1,
+                'created_at'=>now(),
+                'updated_at'=>now(),
             )
         );
     }

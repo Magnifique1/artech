@@ -21,12 +21,20 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Group Name</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="search" name="group_name" id="group_name">
+
+                                        @error('group_name')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-search-input" class="col-sm-2 col-form-label">Group Location</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="search" name="group_location" id="group_location">
+
+                                        @error('group_location')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -37,6 +45,9 @@
                                             @foreach($allBranches as $AB)
                                                 <option value="{{$AB->id}}">{{$AB->branch_name}}</option>
                                             @endforeach
+                                            @error('default_branch_id')
+                                            <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
                                         </select>
                                     </div>
                                 </div>
@@ -82,7 +93,6 @@
                                         <th>Group Name</th>
                                         <th>Group Branch</th>
                                         <th>Group BDO</th>
-                                        <th>Number of Members</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -91,10 +101,9 @@
                                     <tr>
                                         <td>{{$AG->group_name}}</td>
                                         <td>{{$AG->branch_name}}</td>
-                                        <td>Magnifique</td>
-                                        <td>12</td>
+                                        <td>{{$AG->fname}} {{$AG->lname}}</td>
                                         <td>
-                                            <a href="/allmembers" class="btn btn-primary waves-effect waves-light">View Members</a>
+                                            <a href="/allmembers/{{$AG->id}}" class="btn btn-primary waves-effect waves-light">View Members</a>
                                         </td>
                                     </tr>
                                     @endforeach

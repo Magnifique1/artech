@@ -5,9 +5,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
+                    @foreach($groupDetails as $GD)
                     <div class="page-title-box">
-                        <h4 class="page-title">All Group Members</h4></div>
-                    <a href="/newmember" class="btn btn-success waves-effect waves-light">Add New Member To This Group</a>
+                        <h4 class="page-title">All {{$GD->group_name}} Members</h4>
+                    </div>
+                    <a href="/newmember/{{$GD->id}}" class="btn btn-success waves-effect waves-light">Add New Member To {{$GD->group_name}} Group</a>
+                    @endforeach
                 </div>
             </div>
             <br>
@@ -29,16 +32,25 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($allMembers as $AM)
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>Ngong</td>
-                                        <td>Beth Warimu</td>
-                                        <td>01/07/2020</td>
-                                        <td>KES 100,000</td>
+                                        <td>{{$AM->fname}} {{$AM->lname}}</td>
+                                        <td>{{$AM->group_name}}</td>
+                                        <td>{{$AM->bfname}} {{$AM->blname}}</td>
+                                        <td>{{$AM->created}}</td>
+                                        <td>KES 0</td>
                                         <td>
-                                            <a href="/memberprofile" class="btn btn-primary waves-effect waves-light">View Profile</a>
+                                            <button type="button"
+                                                    class="btn btn-primary waves-effect waves-light"
+                                                    data-toggle="modal"
+                                                    data-animation="bounce"
+                                                    data-target=".development">
+                                                View Profile
+                                            </button>
+{{--                                            <a href="/memberprofile/{{$AM->id}}" class="btn btn-primary waves-effect waves-light">View Profile</a>--}}
                                         </td>
                                     </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -48,4 +60,7 @@
             </div>
         </div>
     </div>
+
+    @include('partials.modals')
+
 @endsection

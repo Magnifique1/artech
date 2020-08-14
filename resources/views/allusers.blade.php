@@ -46,8 +46,12 @@
                                         <td>{{$AU->created}}</td>
                                         <td>0</td>
                                         <td>
-                                            <button type="button" class="btn btn-warning waves-effect waves-light">View
-                                                Profile
+                                            <button type="button"
+                                                    class="btn btn-primary waves-effect waves-light"
+                                                    data-toggle="modal"
+                                                    data-animation="bounce"
+                                                    data-target=".development">
+                                                View Profile
                                             </button>
                                         </td>
                                     </tr>
@@ -62,5 +66,7 @@
             </div>
         </div>
     </div>
+
+    @include('partials.modals')
 
 @endsection

@@ -10,6 +10,10 @@ class BranchesController extends Controller
 {
     public function store(Request $request){
 
+        $data = request()->validate([
+            'branch_name'=>'required',
+        ]);
+
         try {
 
             DB::table('branches')->insert([

@@ -51,6 +51,8 @@
                         </a>
                     </li>
 
+                    @if( Auth::user()->role == 'ADMIN')
+
                     <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
                                 class="mdi mdi-layers"></i> <span>Users </span><span class="float-right"><i
                                     class="mdi mdi-chevron-right"></i></span></a>
@@ -59,6 +61,7 @@
                             <li><a href="/allusers">View All Users</a></li>
                         </ul>
                     </li>
+                    @endif
 
                     <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
                                 class="mdi mdi-layers"></i> <span>Groups& Members</span><span class="float-right"><i
@@ -68,6 +71,7 @@
                         </ul>
                     </li>
 
+                    @if(Auth::user()->role == 'ADMIN')
                     <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
                                 class="mdi mdi-layers"></i> <span>Branches</span><span class="float-right"><i
                                     class="mdi mdi-chevron-right"></i></span></a>
@@ -75,6 +79,7 @@
                             <li><a href="/branches">Create/View Branches</a></li>
                         </ul>
                     </li>
+                    @endif
 
                 </ul>
 
@@ -96,20 +101,23 @@
                     <ul class="list-inline float-right mb-0">
                         <li class="list-inline-item dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown"
-                               href="#" role="button" aria-haspopup="false" aria-expanded="false"><img
-                                    src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right profile-dropdown"><!-- item-->
-                                <div class="dropdown-item noti-title"><h5>Welcome</h5></div>
-                                <a class="dropdown-item" href="#"><i
-                                        class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a> <a
-                                    class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5 text-muted"></i> My
-                                    Wallet</a> <a class="dropdown-item" href="#"><span
-                                        class="badge badge-success float-right">5</span><i
-                                        class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a> <a
-                                    class="dropdown-item" href="#"><i
-                                        class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                               href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="{{asset('assets/images/users/avatar-1.jpg')}}" alt="user" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                <div class="dropdown-item noti-title">
+                                    <h5>Welcome {{Auth::user()->fname}}</h5>
+                                </div>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    <i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i>
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+{{--                                <div class="dropdown-divider"></div>--}}
+{{--                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>--}}
                             </div>
                         </li>
                     </ul>
@@ -260,5 +268,4 @@
     });
 </script>
 </body>
-<!-- Mirrored from mannatthemes.com/annex/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jun 2020 15:39:37 GMT -->
 </html>

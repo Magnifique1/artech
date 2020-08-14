@@ -30,6 +30,11 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Branch Name</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="text" value="" id="branch_name" name="branch_name">
+
+                                        @error('branch_name')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group m-b-0">
@@ -62,16 +67,23 @@
                                     <thead>
                                     <tr>
                                         <th>Branch Name</th>
-                                        <th>Number of Active Members</th>
-                                        <th>Number of Active BDO's</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($allBranches as $AB)
                                     <tr>
                                         <td>{{$AB->branch_name}}</td>
-                                        <td>12</td>
-                                        <td>2</td>
+                                        <td>
+                                            <button type="button"
+                                                    class="btn btn-primary waves-effect waves-light"
+                                                    data-toggle="modal"
+                                                    data-animation="bounce"
+                                                    data-target=".development">
+                                                View Branch Profile
+                                            </button>
+
+                                        </td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -83,4 +95,7 @@
             </div>
         </div>
     </div>
+
+    @include('partials.modals')
+
 @endsection

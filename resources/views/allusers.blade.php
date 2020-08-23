@@ -32,7 +32,6 @@
                                         <th>Branch</th>
                                         <th>Role</th>
                                         <th>Date Started</th>
-                                        <th>Total Active Members</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -44,15 +43,8 @@
                                         <td>{{$AU->branch_name}}</td>
                                         <td>{{$AU->role}}</td>
                                         <td>{{$AU->created}}</td>
-                                        <td>0</td>
                                         <td>
-                                            <button type="button"
-                                                    class="btn btn-primary waves-effect waves-light"
-                                                    data-toggle="modal"
-                                                    data-animation="bounce"
-                                                    data-target=".development">
-                                                View Profile
-                                            </button>
+                                            <a href="/userprofile/{{$AU->id}}" class="btn btn-primary waves-effect waves-light">View Profile</a>
                                         </td>
                                     </tr>
                                     @endforeach

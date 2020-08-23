@@ -5,11 +5,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
+
                     @foreach($groupDetails as $GD)
                     <div class="page-title-box">
                         <h4 class="page-title">All {{$GD->group_name}} Members</h4>
                     </div>
-                    <a href="/newmember/{{$GD->id}}" class="btn btn-success waves-effect waves-light">Add New Member To {{$GD->group_name}} Group</a>
+                        @if(Auth::user()->role == 'BDO')
+                            <a href="/newmember/{{$GD->id}}" class="btn btn-success waves-effect waves-light">Add New Member To {{$GD->group_name}} Group</a>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -27,7 +30,6 @@
                                         <th>Group</th>
                                         <th>BDO</th>
                                         <th>Member Since</th>
-                                        <th>Total Current Savings</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -38,16 +40,8 @@
                                         <td>{{$AM->group_name}}</td>
                                         <td>{{$AM->bfname}} {{$AM->blname}}</td>
                                         <td>{{$AM->created}}</td>
-                                        <td>KES 0</td>
                                         <td>
-                                            <button type="button"
-                                                    class="btn btn-primary waves-effect waves-light"
-                                                    data-toggle="modal"
-                                                    data-animation="bounce"
-                                                    data-target=".development">
-                                                View Profile
-                                            </button>
-{{--                                            <a href="/memberprofile/{{$AM->id}}" class="btn btn-primary waves-effect waves-light">View Profile</a>--}}
+                                            <a href="/memberprofile/{{$AM->id}}" class="btn btn-primary waves-effect waves-light">View Profile</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -3,6 +3,8 @@
 @section('content')
     <div class="page-content-wrapper">
         <div class="container-fluid">
+
+            @if(Auth::user()->role == 'BDO')
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
@@ -67,6 +69,7 @@
                     </div>
                 </div>
             </div>
+            @endif
 
             <div class="row">
                 <div class="col-sm-12">
@@ -114,6 +117,45 @@
                     </div>
                 </div>
             </div>
+                @if(Auth::user()->role != 'BDO')
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="card m-b-30">
+                            <div class="card-body table-responsive">
+                                <h5 class="header-title">Members Pending Activation</h5>
+                                <div class="">
+                                    <table id="datatableAPM" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Group</th>
+                                            <th>BDO</th>
+                                            <th>Member Since</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($allPendingMembers as $APM)
+                                            <tr>
+                                                <td>{{$APM->fname}} {{$APM->lname}}</td>
+                                                <td>{{$APM->group_name}}</td>
+                                                <td>{{$APM->bfname}} {{$APM->blname}}</td>
+                                                <td>{{$APM->created}}</td>
+                                                <td><span class="badge badge-danger">Inactive</span></td>
+                                                <td>
+                                                    <a href="/memberprofile/{{$APM->id}}" class="btn btn-primary waves-effect waves-light">View Profile</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
         </div>
     </div>
 @endsection

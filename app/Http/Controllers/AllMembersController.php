@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class AllMembersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($gID){
 
         $allMembers = DB::select('select m.id,m.fname,m.lname,mg.group_name,u.fname as bfname, u.lname as blname, DATE_FORMAT(m.created_at, \'%d-%m-%Y\') as created from members m
@@ -20,7 +26,6 @@ class AllMembersController extends Controller
         return view('allmembers',[
             'allMembers'=>$allMembers,
             'groupDetails'=>$groupDetails
-
         ]);
     }
 }

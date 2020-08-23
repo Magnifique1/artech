@@ -20,6 +20,15 @@
     <link href="{{asset('assets/plugins/datatables/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/plugins/datatables/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/timepicker/tempusdominus-bootstrap-4.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/timepicker/bootstrap-material-datetimepicker.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/clockpicker/jquery-clockpicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/colorpicker/asColorPicker.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -45,13 +54,13 @@
                 <ul>
                     <li class="menu-title">Main Menu</li>
                     <li>
-                        <a href="/" class="waves-effect">
+                        <a href="/home" class="waves-effect">
                             <i class="mdi mdi-airplay"></i>
                             <span>Dashboard <span></span></span>
                         </a>
                     </li>
 
-                    @if( Auth::user()->role == 'ADMIN')
+                    @if( Auth::user()->role != 'BDO')
 
                     <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i
                                 class="mdi mdi-layers"></i> <span>Users </span><span class="float-right"><i
@@ -86,16 +95,11 @@
             </div>
             <div class="clearfix"></div>
         </div>
-        <!-- end sidebarinner -->
     </div>
-    <!-- Left Sidebar End -->
 
-    <!-- Start right Content here -->
     <div class="content-page">
-        <!-- Start content -->
         <div class="content">
 
-            <!-- Top Bar Start -->
             <div class="topbar">
                 <nav class="navbar-custom">
                     <ul class="list-inline float-right mb-0">
@@ -116,8 +120,6 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-{{--                                <div class="dropdown-divider"></div>--}}
-{{--                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>--}}
                             </div>
                         </li>
                     </ul>
@@ -127,17 +129,11 @@
                             <button class="button-menu-mobile open-left waves-light waves-effect"><i
                                     class="mdi mdi-menu"></i></button>
                         </li>
-                        <li class="hide-phone app-search">
-                            <form role="search" class=""><input type="text" placeholder="Search..."
-                                                                class="form-control"> <a href="#"><i
-                                        class="fa fa-search"></i></a></form>
-                        </li>
                     </ul>
 
                     <div class="clearfix"></div>
                 </nav>
             </div>
-            <!-- Top Bar End -->
 
             @yield('content')
 
@@ -147,8 +143,6 @@
     </div><!-- End Right content here --></div>
 
 <!-- END wrapper --><!-- jQuery  -->
-
-
 
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/popper.min.js')}}"></script>
@@ -182,7 +176,19 @@
 <script src="{{asset('assets/plugins/datatables/responsive.bootstrap4.min.js')}}"></script><!-- Datatable init js -->
 <script src="{{asset('assets/pages/datatables.init.js')}}"></script>
 <script src="{{asset('assets/plugins/select2/select2.min.js')}}" type="text/javascript"></script>
-<script>/* BEGIN SVG WEATHER ICON */
+<script src="{{asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('assets/plugins/timepicker/moment.js')}}"></script>
+<script src="{{asset('assets/plugins/timepicker/tempusdominus-bootstrap-4.js')}}"></script>
+<script src="{{asset('assets/plugins/timepicker/bootstrap-material-datetimepicker.js')}}"></script>
+<script src="{{asset('assets/plugins/clockpicker/jquery-clockpicker.min.js')}}"></script>
+<script src="{{asset('assets/plugins/colorpicker/jquery-asColor.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/plugins/colorpicker/jquery-asGradient.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/plugins/colorpicker/jquery-asColorPicker.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+<script src="{{asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/form-advanced.js')}}"></script>
+<script>
     if (typeof Skycons !== 'undefined') {
         var icons = new Skycons(
             {"color": "#fff"},
@@ -264,6 +270,35 @@
 <script type="text/javascript">$(document).ready(function () {
         $('#datatable4').DataTable({
             responsive: true
+        });
+    });
+</script>
+
+<script type="text/javascript">$(document).ready(function () {
+        $('#datatableAPM').DataTable({
+            responsive: true
+        });
+    });
+</script>
+
+<script type="text/javascript">$(document).ready(function () {
+        $('#attachmentsUsers').DataTable({
+            responsive: true
+        });
+    });
+</script>
+
+<script type="text/javascript">$(document).ready(function () {
+        $('#attachmentsMembers').DataTable({
+            responsive: true
+        });
+    });
+</script>
+
+<script type="text/javascript">$(document).ready(function () {
+        $('#datatableHome').DataTable({
+            responsive: true,
+            order: [[ 4, "desc" ]]
         });
     });
 </script>

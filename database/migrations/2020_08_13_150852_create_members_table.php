@@ -21,6 +21,7 @@ class CreateMembersTable extends Migration
             $table->string('phone1');
             $table->string('phone2');
             $table->string('id_number');
+            $table->unsignedBigInteger('status');
             $table->string('docIDPath')->nullable();
             $table->string('docKRAPath')->nullable();
             $table->unsignedBigInteger('default_user_id');

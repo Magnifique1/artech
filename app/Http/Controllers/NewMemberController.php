@@ -18,8 +18,17 @@ class NewMemberController extends Controller
 
         $uID = auth()->id();
 
+        $data = request()->validate([
+            'fname'=>'required',
+            'mname'=>'required',
+            'lname'=>'required',
+            'phone1'=>'required',
+            'phone2'=>'required',
+            'id_number'=>'required',
+        ]);
+
         try {
-            DB::table('members')->insert([
+            $id = DB::table('members')->insertGetId([
 
                 'fname' => $request->input('fname'),
                 'mname' => $request->input('mname'),
@@ -27,16 +36,41 @@ class NewMemberController extends Controller
                 'phone1' => $request->input('phone1'),
                 'phone2' => $request->input('phone2'),
                 'id_number' => $request->input('id_number'),
+                'status'=> 0,
                 'default_user_id' => $uID,
                 'default_group_id' => $request->input('default_group_id'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
 
+            if($request->hasFile('uploaded_files')){
+                foreach ($request->file('uploaded_files') as $uploadedFile){
+                    $filenameWithExtension = $uploadedFile->getClientOriginalName();
+                    $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+                    $extension = $uploadedFile->getClientOriginalExtension();
+                    $fileToStore = sprintf('%s_%s_.%s', $filename, time(), $extension);
+
+                    $uploadedFile->storeAs('public/file-uploads', $fileToStore);
+                    $path = storage_path(sprintf('app/public/file-uploads/%s', $fileToStore));
+                    $publicURL = asset(sprintf('storage/file-uploads/%s', $fileToStore));
+
+                    try {
+                        DB::table('uploads')->insert([
+                            'mid' => $id,
+                            'purl' => $publicURL,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
+                    }catch (Exception $exception){
+                        throw new Exception($exception->getMessage());
+                    }
+                }
+            }
+
         }catch (Exception $exception){
             throw new Exception($exception->getMessage());
         }
-        return redirect()->route('groups')->with('success', 'User Successfully Added');
+        return redirect()->route('groups')->with('success', 'Member Successfully Added');
     }
 
     public function index($gID){

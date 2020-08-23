@@ -67,23 +67,12 @@
                                     <thead>
                                     <tr>
                                         <th>Branch Name</th>
-                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($allBranches as $AB)
                                     <tr>
                                         <td>{{$AB->branch_name}}</td>
-                                        <td>
-                                            <button type="button"
-                                                    class="btn btn-primary waves-effect waves-light"
-                                                    data-toggle="modal"
-                                                    data-animation="bounce"
-                                                    data-target=".development">
-                                                View Branch Profile
-                                            </button>
-
-                                        </td>
                                     </tr>
                                     @endforeach
                                     </tbody>

@@ -15,13 +15,16 @@
                         <div class="card-body">
                             <h4 class="mt-0 header-title">Personal Information</h4>
 
-                            <form method="POST" action="{{route('newuser.store')}}">
+                            <form method="POST" action="{{route('newuser.store')}}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">First Name</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="search" name="fname" id="fname">
+                                        @error('fname')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -29,6 +32,9 @@
                                     <label for="example-search-input" class="col-sm-2 col-form-label">Surname</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="search" name="lname" id="lname">
+                                        @error('lname')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -36,6 +42,9 @@
                                     <label for="example-search-input" class="col-sm-2 col-form-label">Primary Phone Number</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="tel" name="phone1" id="phone1">
+                                        @error('phone1')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -43,6 +52,9 @@
                                     <label for="example-search-input" class="col-sm-2 col-form-label">Secondary Phone Number</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="tel" name="phone2" id="phone2">
+                                        @error('phone2')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -50,6 +62,9 @@
                                     <label for="example-search-input" class="col-sm-2 col-form-label">ID Number</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="search" name="id_number" id="id_number">
+                                        @error('id_number')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -57,20 +72,9 @@
                                     <label for="example-email-input" class="col-sm-2 col-form-label">Company Email</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="email" name="email" id="email">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Login Password</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="password" name="password" id="password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="example-email-input" class="col-sm-2 col-form-label">Confirm Password</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="password" name="" id="">
+                                        @error('email')
+                                        <small class="form-text text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -79,9 +83,11 @@
                                     <div class="col-sm-10">
                                         <select class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;" name="role" id="role">
                                             <option>Select</option>
-                                            <option value="BDO">Business Development Officer</option>
+                                            @if(Auth::user()->role == 'ADMIN')
                                             <option value="ADMIN">Administrator</option>
                                             <option value="BM">Branch Manager</option>
+                                            @endif
+                                            <option value="BDO">Business Development Officer</option>
                                         </select>
                                     </div>
                                 </div>
@@ -100,22 +106,16 @@
 
                                 <br>
                                 <br>
-                                <h4 class="mt-0 header-title">Attachments</h4>
+                                <h4 class="mt-0 header-title">Upload Attachments</h4>
 
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="card m-b-30">
-                                            <div class="card-body"><h4 class="mt-0 header-title">Attach Copy of ID</h4>
-                                                <p class="text-muted m-b-30 font-14">Make sure both side of ID are on a single document</p>
-                                                <input type="file" id="input-file-now" class="dropify"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="card m-b-30">
                                             <div class="card-body">
-                                                <h4 class="mt-0 header-title">Attach Copy of KRA PIN</h4>
-                                                <p class="text-muted m-b-30 font-14">Make sure both side of KRA are on a single document</p>
-                                                <input type="file" id="input-file-now" class="dropify"></div>
+                                                <h4 class="mt-0 header-title">Attach Supporting Documents</h4>
+                                                <p class="text-muted m-b-30 font-14">Please attach: ID - KRA PIN - Passport Picture</p>
+                                                <input type="file" id="userFiles" name="user_uploaded_files[]" multiple>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

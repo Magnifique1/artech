@@ -7,11 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -37,9 +33,9 @@ class CreateUsersTable extends Migration
                 'lname'=>'Nsengimana',
                 'phone1'=>'0797301935',
                 'phone2'=>'0797301935',
-                'id_number'=>'123456',
+                'id_number'=>'12345678',
                 'email'=>'test@test.com',
-                'password'=>Hash::make('123456'),
+                'password'=>Hash::make('12345678'),
                 'role'=>'ADMIN',
                 'default_branch_id'=>1,
                 'created_at'=>now(),
@@ -48,11 +44,6 @@ class CreateUsersTable extends Migration
         );
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');
